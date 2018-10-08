@@ -1,2 +1,2 @@
 # iuliu.github.io
-aplication
+mobile aplication 
