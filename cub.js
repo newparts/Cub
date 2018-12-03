@@ -282,7 +282,7 @@ Viewport.prototype.animate = function() {
 
 }
 var viewport = new Viewport({
-  element: document.getElementsByClassName('cube')[0],
+  element: document.getElementsByClassName('cub')[0],
   fps: 20,
   sensivity: .1,
   sensivityFade: .93,
@@ -290,7 +290,7 @@ var viewport = new Viewport({
   touchSensivity: 1.5
 });
 
-function Cube(data) {
+function Cub(data) {
   var self = this;
 
   this.element = data.element;
@@ -307,37 +307,37 @@ function Cube(data) {
     self.sideChange();
   });
 }
-Cube.prototype.rotateSides = function() {
+Cub.prototype.rotateSides = function() {
   var viewport = this.viewport;
   if(viewport.positionY > 90 && viewport.positionY < 270) {
-    this.sides[0].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + (viewport.positionX + viewport.torqueX) + 'deg)';
-    this.sides[5].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + -(viewport.positionX + 180 + viewport.torqueX) + 'deg)';
+    this.sides[0].getElementsByClassName('cub-img')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + (viewport.positionX + viewport.torqueX) + 'deg)';
+    this.sides[5].getElementsByClassName('cub-img')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + -(viewport.positionX + 180 + viewport.torqueX) + 'deg)';
   } else {
-    this.sides[0].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + (viewport.positionX - viewport.torqueX) + 'deg)';
-    this.sides[5].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + -(viewport.positionX + 180 - viewport.torqueX) + 'deg)';
+    this.sides[0].getElementsByClassName('cub-img')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + (viewport.positionX - viewport.torqueX) + 'deg)';
+    this.sides[5].getElementsByClassName('cub-img')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + -(viewport.positionX + 180 - viewport.torqueX) + 'deg)';
   }
 }
-Cube.prototype.upsideDown = function(obj) {
+Cub.prototype.upsideDown = function(obj) {
 
   var deg = (obj.upsideDown == true) ? '180deg' : '0deg';
   var i = 5;
 
   while(i > 0 && --i) {
-    this.sides[i].getElementsByClassName('cube-image')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + deg + ')';
+    this.sides[i].getElementsByClassName('cub-img')[0].style[userPrefix.js + 'Transform'] = 'rotate(' + deg + ')';
   }
 
 }
-Cube.prototype.sideChange = function() {
+Cub.prototype.sideChange = function() {
 
   for(var i = 0; i < this.sides.length; ++i) {
-    this.sides[i].getElementsByClassName('cube-image')[0].className = 'cube-image';    
+    this.sides[i].getElementsByClassName('cub-img')[0].className = 'cub-img';    
   }
 
-  this.sides[this.viewport.currentSide - 1].getElementsByClassName('cube-image')[0].className = 'cube-image active';
+  this.sides[this.viewport.currentSide - 1].getElementsByClassName('cub-img')[0].className = 'cub-img active';
 
 }
 
-new Cube({
+new Cub({
   viewport: viewport,
-  element: document.getElementsByClassName('cube')[0]
+  element: document.getElementsByClassName('cub')[0]
 });
